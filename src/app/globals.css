@@ -2,20 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pixelify+Sans:wght@400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'); */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body, html {
+  background-color: #5E2E53;
+  height: 100%;
+  width: 100%;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+h1 {
+  font-family: "Ubuntu", serif;
+  font-size: 36px;
+  color: #EAEAEA;
+}
+
+.front-page-img {
+  background-image: url("/splash-image.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.racing-sans-one-regular {
+  font-family: "Racing Sans One", serif;
+  font-weight: 900;
+}
+
+.image-radius {
+  border-radius: 40px 40px 0px 40px;
+}
+
+.image-text-box {
+  border-radius: 0px 40px 0px 40px;
+  background-color: rgba(225, 161, 233, 80%);
 }
