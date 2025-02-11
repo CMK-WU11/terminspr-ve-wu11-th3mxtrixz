@@ -2,10 +2,10 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 
 export default async function Calendar() {
-    const getActivities = await fetch(``)
-    const data = await getActivities.json()
+    // const getActivities = await fetch(``)
+    // const data = await getActivities.json()
     
-    console.log("activities", data)
+    // console.log("activities", data)
     return (
         <>
         <Header manualTitle="Kalender"/>

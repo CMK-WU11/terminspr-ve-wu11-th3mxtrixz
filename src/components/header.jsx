@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react"
 
 export default function Header({ manualTitle }) {
+    // Alt med "manualTitle" at gøre er taget fra "Din Mægler" opgave.  
     const [title, setTitle] = useState("")
     const pathName = usePathname().split("/")[1]
 

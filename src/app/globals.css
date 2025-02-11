@@ -41,3 +41,12 @@ h1 {
   border-radius: 0px 40px 0px 40px;
   background-color: rgba(225, 161, 233, 80%);
 }
+
+.diagonal-box {
+  background-color: rgba(94, 46, 83, 50%);
+  transform: rotate(65deg)
+}
+
+.opposite-rotate {
+  transform: rotate(-65deg)
+}
