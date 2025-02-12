@@ -43,7 +43,7 @@ export default function LoginForm() {
             </div>
             <div className="flex flex-col items-center">
                 {formState?.error && <span className="text-red-700">{formState.error}</span>}
-                <button disabled={isPending} type="submit" className="bg-[#5E2E53] text-[#EAEAEA] text-lg rounded-xl h-12 w-60 mt-4">{isPending ? "Logger ind.." : "Log ind"}</button>
+                <button disabled={isPending} type="submit" className="bg-[#5E2E53] text-[#EAEAEA] text-lg rounded-xl h-12 w-60 mt-4 button-shadow">{isPending ? "Logger ind.." : "Log ind"}</button>
             </div>
         </form>
     )

@@ -1,3 +1,13 @@
-remember border shadow around: buttons and footer
-animation af "kom i gang" button
-ændre navigation med kalenderen til middleware
+remember border shadow around: buttons and footer ✔
+animation af "kom i gang" button ✔
+ændre navigation med kalenderen til middleware ✔
+
+få token til at kigge efter om uid er >4 (?)
+
+færdiggøre tilmeld og kalender siden + sørge for at differentiere mellem default og instruktør, og om man er tilmeld eller ej.
+det skal heller ikke være muligt at tilmelde sig en aktivitet hvis man er inden/udefor aldersgrænsen
+brugeren kan ikke tilmelde s    ig mere end en aktiviet der foregår samme ugedag
+
+search function
+
+
