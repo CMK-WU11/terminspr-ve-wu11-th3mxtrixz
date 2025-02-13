@@ -1,25 +1,11 @@
 import Footer from "@/components/footer"
 import SignUpButton from "@/components/signup-button"
+import { cookies } from "next/headers"
 
 export default async function Activity({params}) {
-    // const [showButton, setShowButton] = useState(false)
-
-    // function handleShowButton(){
-    //     if (showButton) {
-    //         deleteCookie("token")
-    //         deleteCookie("uid")
-    //         // redirect("/login")
-    //     }
-    // }
-
-    // async function fetchData() {
-    //     try {
-    //         const {id} = params
-    //         const getActivities = await fetch(`http://localhost:4000/api/v1/activities/${id}`)
-    //         const results = await getActivities.json()
-    //     }
-    // }
-    
+    const cookieStore = await cookies()
+    const token = cookieStore.get("token")
+    const uid = cookieStore.get("uid")
 
     const {id} = await params
     const getActivities = await fetch(`http://localhost:4000/api/v1/activities/${id}`)
@@ -30,8 +16,8 @@ export default async function Activity({params}) {
         <>
         <div className="h-[100vh]">
             <div className="relative">
-                <img src={data.asset.url} className="h-[10%] w-[100%] object-cover"/>
-                <SignUpButton id={id} />
+                <img src={data.asset.url} className="h-[40rem] w-[100%] object-cover"/>
+                {token && uid ? <SignUpButton token={token.value} id={id} uid={uid.value}/> : null}
             </div>
             <div className="p-[1rem] text-white">
                 <h3 className="text-[24px]">{data.name}</h3>

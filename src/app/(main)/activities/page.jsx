@@ -11,8 +11,8 @@ export default async function Activities() {
     return (
         <div>
             <Header manualTitle="Aktiviteter"/> 
-            {data.map((data, index) => (
-                <Card data={data} key={index}/>
+            {data.map((item, index) => (
+                <Card data={item} key={index}/>
             ))}
             <Footer/>
         </div>

@@ -56,9 +56,19 @@ export default async function Login(prevState, formData) {
         const cookieStore = await cookies()
         cookieStore.set("token", data.token, { maxAge: 60 * 60 * 24})
         cookieStore.set("uid", data.userId, { maxAge: 60 * 60 * 24})
+        cookieStore.set("role", data.role, { maxAge: 60 * 60 * 24})
+
+        } catch (error) {
+            throw new Error(error)
+        }
+
+        const cookieStore = await cookies()
+        const role = cookieStore.get("role")
         
-    } catch (error) {
-        throw new Error(error)
-    }
-    redirect("/calendar")
+        if (role.value === "instructor") {
+            redirect("/calendar/instructor")
+            
+        }else {
+            redirect("/calendar")
+        }
 }
