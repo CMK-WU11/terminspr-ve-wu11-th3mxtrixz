@@ -8,6 +8,7 @@ import { cookies } from "next/headers";
 export default async function Footer() {
     const cookieStore = await cookies()
     const role = cookieStore.get("role")
+    console.log("role footer", role)
 
     return (
         <footer className="footer-shadow flex justify-around items-center h-[5rem] w-[100vw] bg-[#EAEAEA] sticky bottom-0">
@@ -17,9 +18,17 @@ export default async function Footer() {
             <div className="border-2 border-black text-[24px] rounded-[50%] p-[0.5rem]">
                 <Link href="/search"><CiSearch/></Link>
             </div>
-            <Link href={role === "instructor" ? '/calendar/instructor' : '/calendar'} className="border-2 border-black text-[24px] rounded-[50%] p-[0.5rem]">
+
+            {role === "instructor" 
+                ? 
+                <Link href={'/calendar/instructor'} className="border-2 border-black text-[24px] rounded-[50%] p-[0.5rem]">
+                    <Image src={CalendarIcon} alt="calendar icon"/>
+                </Link> 
+                :
+                <Link href={'/calendar'} className="border-2 border-black text-[24px] rounded-[50%] p-[0.5rem]">
                     <Image src={CalendarIcon} alt="calendar icon"/>
                 </Link>
+                }
         </footer>
     )
 }

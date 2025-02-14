@@ -95,3 +95,7 @@ i {
 .footer-shadow {
   box-shadow: 0px -6px 22px -1px rgba(0, 0, 0, 0.75);
 }
+
+input[type="checkbox"] {
+  accent-color: #5E2E53;
+}

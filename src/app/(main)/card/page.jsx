@@ -1,6 +1,7 @@
+"use client"
 import Link from "next/link"
 
-export default async function Card({data}) {
+export default function Card({data}) {
     return (
             <div>
                 <Link href={`/activities/${data.id}`}>

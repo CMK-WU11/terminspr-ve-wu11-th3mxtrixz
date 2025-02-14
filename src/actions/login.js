@@ -4,10 +4,11 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 import { z } from "zod"
 
-// Alt er taget fra repitation med Brian og Din Mægler opgave (med enkelte ændringer)
+// Taget fra repitation med Brian og Din Mægler opgave (med enkelte ændringer)
 export default async function Login(prevState, formData) {
     const username = formData.get("username")
     const password = formData.get("password")
+    const checkbox = formData.get("checkbox")
 
     const schema = z.object({
         username: z.string().min(1, { message: "Du skal udfylde et brugernavn"}),
@@ -41,7 +42,7 @@ export default async function Login(prevState, formData) {
         })
         
         
-        if (response.status === 400) { // bad request
+        if (response.status === 401) { // bad request
             return {
                 formData: {
                     username,
@@ -54,9 +55,17 @@ export default async function Login(prevState, formData) {
         const data = await response.json()
         
         const cookieStore = await cookies()
-        cookieStore.set("token", data.token, { maxAge: 60 * 60 * 24})
-        cookieStore.set("uid", data.userId, { maxAge: 60 * 60 * 24})
-        cookieStore.set("role", data.role, { maxAge: 60 * 60 * 24})
+        if(checkbox === "on") {
+            cookieStore.set("token", data.token, { maxAge: 60 * 60 * 24})
+            cookieStore.set("uid", data.userId, { maxAge: 60 * 60 * 24})
+            cookieStore.set("role", data.role, { maxAge: 60 * 60 * 24})
+        } else {
+            cookieStore.set("token", data.token)
+            cookieStore.set("uid", data.userId)
+            cookieStore.set("role", data.role)
+        }
+        
+        console.log("check", checkbox)
 
         } catch (error) {
             throw new Error(error)

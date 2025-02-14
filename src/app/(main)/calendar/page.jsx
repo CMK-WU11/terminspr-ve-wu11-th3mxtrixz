@@ -27,7 +27,6 @@ export default async function Calendar() {
                 </div>
             ))}
         </div>
-        <Footer/>
         </>
     )
 }

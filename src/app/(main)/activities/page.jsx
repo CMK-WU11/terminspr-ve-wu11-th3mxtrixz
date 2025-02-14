@@ -14,7 +14,6 @@ export default async function Activities() {
             {data.map((item, index) => (
                 <Card data={item} key={index}/>
             ))}
-            <Footer/>
         </div>
     )
 }

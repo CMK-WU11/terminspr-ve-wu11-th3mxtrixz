@@ -24,7 +24,7 @@ export default function LoginForm() {
                     />
                 </label>
                 {formState?.errors?.username && (
-                    <span className="block text-red-700">{formState.errors.username._errors[0]}</span>
+                    <span className="block text-red-700 font-bold">{formState.errors.username._errors[0]}</span>
                 )}
             </div>
             <div>
@@ -38,11 +38,15 @@ export default function LoginForm() {
                     />
                 </label>
                 {formState?.errors?.password && (
-                    <span className="block text-red-700">{formState.errors.password._errors[0]}</span>
+                    <span className="block text-red-700 font-bold">{formState.errors.password._errors[0]}</span>
                 )}
             </div>
+            <div className="flex mt-[0.5rem]">
+                <input type="checkbox" name="checkbox"/>
+                <label className="ml-[0.5rem] text-white">Remember Me</label>
+            </div>
             <div className="flex flex-col items-center">
-                {formState?.error && <span className="text-red-700">{formState.error}</span>}
+                {formState?.error && <span className="text-red-700 font-bold">{formState.error}</span>}
                 <button disabled={isPending} type="submit" className="bg-[#5E2E53] text-[#EAEAEA] text-lg rounded-xl h-12 w-60 mt-4 button-shadow">{isPending ? "Logger ind.." : "Log ind"}</button>
             </div>
         </form>
